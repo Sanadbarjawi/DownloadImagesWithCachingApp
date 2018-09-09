@@ -27,6 +27,21 @@ extension UIImageView{
     func downloadImage(url:String){
         let url = URL(string: url)!
         self.kf.indicatorType = .activity
-        self.kf.setImage(with: url)
+        self.kf.setImage(with: url, placeholder: nil, options:  [.transition(.fade(0.2))], progressBlock: nil, completionHandler: nil)
     }
+    
+    func downloadImageWithProgress(url:String){
+        let url = URL(string: url)!
+        self.kf.setImage(with: url, progressBlock: {
+            receivedSize, totalSize in
+            let percentage = (Float(receivedSize) / Float(totalSize)) * 100.0
+            print("downloading progress: \(percentage)%")
+            self.kf.indicatorType = .activity
+        })
+    }
+    
+    
 }
+
+
+
