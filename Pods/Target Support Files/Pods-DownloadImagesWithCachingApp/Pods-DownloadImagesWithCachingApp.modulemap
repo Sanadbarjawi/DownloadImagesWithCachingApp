@@ -1,0 +1,6 @@
+framework module Pods_DownloadImagesWithCachingApp {
+  umbrella header "Pods-DownloadImagesWithCachingApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
